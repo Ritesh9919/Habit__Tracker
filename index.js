@@ -4,6 +4,8 @@ const port = 8000;
 
 const app = express();
 
+app.use(express.urlencoded());
+
 // setting view engine
 app.set('view engine', 'ejs');
 app.set(express.static('./static'));
