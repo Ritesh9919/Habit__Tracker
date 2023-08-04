@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        header{
+        width:100%;
+        background-color: #4166f5;
+        color:white;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        align-items: center;
+    }
+
+    header a{
+        text-decoration: none;
+        color:white;
+        font-size: 22px;
+        margin-right: 36px;
+        font-weight: bold;
+    }
+
+    form{
+        text-align: center;
+        margin-top:50px;
+
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Weekly Track</h1>
+        <a href="/">Home</a>
+        
+        </header>
+    <% habits.forEach(habit => { %>
+    <form action="/habits/edit/<%= habit._id %>" method="POST">
+        <input type="text" name="content" placeholder="Enter here" required/>
+        <input type="submit" value="Edit"/>
+    </form>
+<%})%>
+</body>
+</html>

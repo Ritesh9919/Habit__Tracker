@@ -4,8 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="css/home.css"/>
 </head>
 <body>
-    <h1>Habit Tracker / Home</h1>
+    <header>
+    <ul>
+        <div class="flex-logo">
+        <a href="/"><h1 class="logo">Habit Tracker</h1></a>
+        <a href="/habits/weekly">Weekly Track</a>
+        </div>
+        <% if(locals.user) { %>
+            <div class="sign-out">
+            <li><a href="/users/profile/<%=locals.user.id %>"><%= user.name %></a></li>
+         <li><a href="/users/destroy-session">Sign Out</a></li>
+         </div>
+        <%} else { %>
+            <div class="sign-in">
+         <li><a href="/users/sign-up">Sign Up</a></li>
+         <li><a href="/users/sign-in">Sign In</a></li>
+         </div>
+       <% } %>
+    </ul>
+    </header>
+
+    <main>
+        <section id="habit">
+            <% if(locals.user) {%>
+            <form action="/habits/create" method="POST">
+                <h1>Add Habit</h1>
+                <input type="text" name="content" placeholder="add here.." required/><br>
+                 <button type="submit">Add</button>
+            </form>
+        <%}%>
+
+            <div class="habit-list">
+             <ul>
+                <% for(habit of habits) { %>
+                 <li class="flex">
+                    <p><%= habit.content %></p>
+                    <p><a href="/habits/destroy/<%= habit.id %>">Delete</a></p>
+                    <p><a href="/habits/edit">Edit</a></p>
+
+                </li>
+                 
+                <%}%>
+             </ul>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

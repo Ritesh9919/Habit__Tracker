@@ -2,12 +2,26 @@ const User = require('../models/user');
 
 
 module.exports.signup = (req, res) => {
+    if(req.isAuthenticated()) {
+        return res.redirect('/');
+    }
     return res.render('sign_up');
 }
 
 
 module.exports.signin = (req, res) => {
+    if(req.isAuthenticated()) {
+        return res.redirect('/');
+    }
     return res.render('sign_in');
+}
+
+module.exports.profile = async (req, res) => {
+
+    const user = await User.findById(req.params.id);
+    return res.render('user_profile', {profile_users:user});
+    
+    return res.redirect('/users/sign-in');
 }
 
 
@@ -27,5 +41,21 @@ module.exports.create = async (req, res) => {
 
 
 module.exports.createSession = (req, res) => {
-    
+    return res.redirect('/');
 }
+
+
+module.exports.destroySession = (req, res, next) => {
+    req.logout((err) => {
+        if (err) {
+            return next(err);
+        }
+        return res.redirect('/');
+    });
+
+}
+
+
+
+
+

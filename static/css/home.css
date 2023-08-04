@@ -1,0 +1,105 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+
+}
+
+.logo{
+    font-size:25px;
+    color:white;
+}
+
+header{
+    width:100%;
+    background-color:#4166f5;
+    position: fixed;
+    top:0;
+    left: 0;
+    
+
+}
+
+main{
+    position: relative;
+    top:95px;
+}
+
+#habit{
+    width:100%;
+}
+
+#habit form{
+    width:30%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+#habit form input {
+    width:70%;
+    padding:8px 10px;
+    border-radius: 2px;
+    outline:none;
+    border:none;
+    box-shadow: 0 0 0 2px gray;
+}
+
+#habit form button {
+    padding:7px 20px;
+    font-size: 18px;
+    
+}
+
+header ul {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sign-in{
+    margin-right:15px;
+    display:flex;
+    gap:10px;
+}
+
+header li {
+    list-style: none;
+}
+
+header a {
+    text-decoration: none;
+    font-size:23px;
+    color:whitesmoke;
+}
+
+.sign-out{
+    margin-right:15px;
+    display:flex;
+    gap:15px;
+}
+
+.flex{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border:2px solid gray;
+    width:50%;
+    margin: 0 auto 10px auto;
+}
+
+.flex p a {
+    text-decoration: none;
+}
+
+.flex-logo{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:25px;
+}
+

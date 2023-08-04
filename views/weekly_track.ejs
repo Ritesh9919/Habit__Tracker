@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Track</title>
+</head>
+<style>
+
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    .weekly-track {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .weekly {
+        width: 150px;
+        height: 150px;
+        border:none;
+        outline: none;
+        box-shadow: 0 0 3px 2px lightgray;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    body{
+            margin: 0;
+            padding: 0;
+        }
+        header{
+        width:100%;
+        background-color: #4166f5;
+        color:white;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        align-items: center;
+    }
+
+    header a{
+        text-decoration: none;
+        color:white;
+        font-size: 22px;
+        margin-right: 36px;
+        font-weight: bold;
+    }
+
+
+    
+</style>
+
+<body>
+    
+        <header>
+        <h1>Weekly Track</h1>
+        <a href="/">Home</a>
+        
+        </header>
+        <div>
+        <% habits.forEach(habit=> { %>
+            
+             <li>
+                <form action="/habits/<%= habit._id %>/toggle" method="POST">
+                    <input type="checkbox" name="completed" <%=habit.weeklyTrack[new Date().getDay()] ? 'checked' : ''
+                        %>>
+                        <span><%= habit.content %></span>
+                    <input type="submit" value="Toggle" />
+                </form>
+
+                <ul class="weekly-track">
+                     
+                    <li class="weekly"><h3>Sunday</h3>
+                        <p><%= habit.weeklyTrack[0] ? 'Completed' : 'Not Completed' %><p></p>
+                    </li>
+                    <li class="weekly"><h3>Monday:</h3>
+                        <p><%= habit.weeklyTrack[1] ? 'Completed' : 'Not Completed' %></p>
+                    </li>
+                    <li class="weekly"><h3>Tuesday:</h3>
+                        <p><%= habit.weeklyTrack[2] ? 'Completed' : 'Not Completed' %></p>
+                    </li>
+                    <li class="weekly"><h3>Wednesday:</h3>
+                        <p> <%= habit.weeklyTrack[3] ? 'Completed' : 'Not Completed' %></p>
+                    </li>
+                    <li class="weekly"><h3>Thursady:</h3>
+                        <p><%= habit.weeklyTrack[4] ? 'Completed' : 'Not Completed' %></p>
+                    </li>
+                    <li class="weekly"><h3>Friday:</h3>
+                        <p><%= habit.weeklyTrack[5] ? 'Completed' : 'Not Completed' %></p>
+                    </li>
+                    <li class="weekly"><h3>Saturday:</h3>
+                        <p><%= habit.weeklyTrack[6] ? 'Completed' : 'Not Completed' %></p>
+                    </li>
+            
+                </li>
+            <%}) %>
+    </div>
+
+
+</body>
+
+</html>

@@ -4,15 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
+    
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        .container{
+            width:100%;
+           
+        }
+
+        
+
+        .signup-form{
+            width:50%;
+            margin: 50px auto 0 auto;
+            padding:10px 0 50px 0;;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 3px 2px lightgray;
+        }
+
+        .signup-form input{
+            width:80%;
+            padding: 15px 10px;
+            border-radius:3px;
+            margin-top: 10px;
+            border:none;
+            outline: none;
+            box-shadow: 0 0 0 1px lightgrey;
+        }
+
+        .submit{
+            font-size:20px;
+            font-weight: bold;
+            background-color: steelblue;
+        }
+    </style>
+    
 </head>
 <body>
-    <div>
-        <h1>Sign Up</h1>
-        <form action="/users/create" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required/>
-            <input type="email" name="email" placeholder="Your Email" required/>
-            <input type="password" name="password" placeholder="Your password" required/>
-            <input type="submit" value="Sign Up"/>
+    <div class="container">
+        <a href="/">Back to home</a>
+        
+        <form action="/users/create" method="POST" class="signup-form">
+            <h1 class="title">Sign Up</h1>
+            <input type="text" name="name" placeholder="Your Name" required/><br>
+            <input type="email" name="email" placeholder="Your Email" required/><br>
+            <input type="password" name="password" placeholder="Your password" required/><br>
+            <input type="submit" value="Sign Up" class="submit"/>
     </form>
     </div>
     
